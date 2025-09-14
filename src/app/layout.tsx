@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { SessionProvider } from 'next-auth/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <SessionProvider>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-grow container mx-auto px-4 py-8">
@@ -26,6 +28,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        </SessionProvider>
       </body>
     </html>
   );
